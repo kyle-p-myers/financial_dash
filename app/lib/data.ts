@@ -36,7 +36,7 @@ unstable_noStore();
 
 export async function fetchLatestInvoices() {
   try {
-    unstable_noStore();
+
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
@@ -57,7 +57,7 @@ export async function fetchLatestInvoices() {
 
 export async function fetchCardData() {
   try {
-    unstable_noStore();
+ 
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
     // how to initialize multiple queries in parallel with JS.
@@ -96,7 +96,7 @@ export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
 ) {
-  unstable_noStore();
+
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
@@ -130,7 +130,7 @@ export async function fetchFilteredInvoices(
 
 export async function fetchInvoicesPages(query: string) {
   try {
-    unstable_noStore();
+
     const count = await sql`SELECT COUNT(*)
     FROM invoices
     JOIN customers ON invoices.customer_id = customers.id
@@ -152,7 +152,7 @@ export async function fetchInvoicesPages(query: string) {
 
 export async function fetchInvoiceById(id: string) {
   try {
-    unstable_noStore();
+
     const data = await sql<InvoiceForm>`
       SELECT
         invoices.id,
@@ -178,7 +178,7 @@ export async function fetchInvoiceById(id: string) {
 
 export async function fetchCustomers() {
   try {
-    unstable_noStore();
+
     const data = await sql<CustomerField>`
       SELECT
         id,
@@ -197,7 +197,7 @@ export async function fetchCustomers() {
 
 export async function fetchFilteredCustomers(query: string) {
   try {
-    unstable_noStore();
+
     const data = await sql<CustomersTableType>`
 		SELECT
 		  customers.id,
