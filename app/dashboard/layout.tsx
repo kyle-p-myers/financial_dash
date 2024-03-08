@@ -1,4 +1,5 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
+import Greeting from '../ui/dashboard/greeting';
  
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
