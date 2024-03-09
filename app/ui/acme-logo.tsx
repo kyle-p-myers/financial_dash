@@ -5,7 +5,7 @@ export default function AcmeLogo() {
   return (
     <div
       className="flex flex-row items-center leading-none text-black">
-      <p className="text-[36px] p-2 m-4">Pidge</p>
+      <p className="text-[36px]">Pidge</p>
     </div>
   );
 }
