@@ -1,4 +1,4 @@
-
+import { ThemeProvider } from "@material-tailwind/react";
 import NotesCreatedCard from '@/app/ui/dashboard/cards';
 import Cards from '@/app/ui/dashboard/cards';
 import Greeting from '@/app/ui/dashboard/greeting';
