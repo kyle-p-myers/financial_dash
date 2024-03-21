@@ -8,34 +8,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { Textarea } from "@material-tailwind/react"
 
-export interface CardWithFormProps {
+export interface CreateNoteProps {
   title: string;
-  content: string;
-  onDelete: () => void;
+  body: string;
 }
 
-export function Note({ title, content, onDelete }: CardWithFormProps) {
+export function Note({ title, body}: CreateNoteProps) {
   return (
-    <Card className="w-[350px] gap-2">
+    <Card className="w-[200px] h-[250px]">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent>
-      {content}
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="destructive" onClick={onDelete}>Delete</Button>
+      <CardContent className=" bg-rose-900 color-black h-1/2">{body}</CardContent>
+      <CardFooter>
+        <Button variant="destructive" >Delete</Button>
       </CardFooter>
     </Card>
   )

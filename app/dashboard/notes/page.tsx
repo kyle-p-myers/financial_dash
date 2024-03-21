@@ -5,35 +5,38 @@ import SearchBar from '@/app/ui/dashboard/search-bar';
 import { CreateNote } from '@/app/ui/notes/Create-note';
 import NotesFilter from '@/app/ui/notes/notes-filter';
 import { Note } from '@/app/ui/notes/note';
+import { ScrollArea } from "@/components/ui/scroll-area";
 
+interface Note {
+  title: string;
+  body: string;
+}
 
 export default function Page() {
-  // State to store the list of notes
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState<Note[]>([]);
 
   // Function to handle saving a new note
-  const handleSaveNote = (title, content) => {
+  const handleSaveNote = (title: string, body: string) => {
     // Append the new note to the existing list of notes
-    setNotes([...notes, { title, content }]);
+    const newNote: Note = { title, body };
+    setNotes([...notes, newNote]);
   };
-
-
   return (
-    <div>
+    <div className='bg-slate-500 h-full flex flex-col overflow-hidden'>
       <div className='w-1/2'><SearchBar /></div>
       <div className='mt-6'>
-        {/* Render the CreateNote component to allow the user to create a new note */}
         <CreateNote onSave={handleSaveNote} />
       </div>
-      <div className='flex'>
+      <div className='flex bg-emerald-600 w-2/3'>
         <NotesFilter />
-        <div className='ml-5'>
-          {/* Render the notes in a scrollable div */}
-          <div className="notes-container">
-            {notes.map((note, index) => (
-              <Note key={index} title={note.title} content={note.body} />
-            ))}
-          </div>
+      </div>
+      {/* Render the scrollable area */}
+      <div className="h-full w-2/3 overflow-auto">
+        <div className="bg-red-500 notes-container p-2">
+          {/* Map over the notes array and render each note */}
+          {notes.map((note, index) => (
+            <Note key={index} title={note.title} body={note.body} />
+          ))}
         </div>
       </div>
     </div>

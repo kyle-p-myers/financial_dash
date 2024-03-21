@@ -78,9 +78,7 @@
 .notes-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  max-height: 400px; /* Adjust this value as needed */
-  overflow-y: auto;
+  gap: 0px;
 }
 
 .notes-container > * {
