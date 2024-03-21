@@ -30,10 +30,8 @@ export default function Page() {
       <div className='flex bg-emerald-600 w-2/3'>
         <NotesFilter />
       </div>
-      {/* Render the scrollable area */}
       <div className="h-full w-2/3 overflow-auto">
         <div className="bg-red-500 notes-container p-2">
-          {/* Map over the notes array and render each note */}
           {notes.map((note, index) => (
             <Note key={index} title={note.title} body={note.body} />
           ))}
