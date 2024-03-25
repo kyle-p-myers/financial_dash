@@ -1,6 +1,6 @@
-import MemberCard from "@/app/ui/teams/member-card";
-import { Button } from "@/app/ui/button";
-import MemberAvatar from "@/components/ui/member-avatar";
+import MemberCard from "@/components/team/member-card";
+import { Button } from "@/components/ui/button"
+import MemberAvatar from "@/components/ui/member-avatar"
 import { Icon } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 

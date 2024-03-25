@@ -10,14 +10,7 @@ export default function BasicBars() {
     <div className='text-center'>
         <h2>Top Note Creators</h2>
     </div>
-    <BarChart
-    layout="horizontal"
-      yAxis={[{ scaleType:'band', data: ['Kyle', 'Cris', 'Tim']}]}
-      series={[{ data: [21,18,20] }]}
-      width={500}
-      height={320}
-      
-    />
+   
     </div>
     </>
   );

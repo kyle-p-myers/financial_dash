@@ -1,6 +1,5 @@
-import LoginWelcome from '../ui/login/login-welcome';
-import { ThemeProvider } from "@material-tailwind/react";
-import LoginForm from '../ui/login/login-form';
+import LoginWelcome from '@/components/login/login-welcome';
+import LoginForm from '@/components/login/login-form';
 
 
 export default function Page() {

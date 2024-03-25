@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import NavLinks from '@/app/ui/dashboard/nav-links';
-import AcmeLogo from '@/app/ui/acme-logo';
+import NavLinks from '@/components/dashboard/nav-links';
+
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Button from '@mui/material/Button';
 
@@ -11,7 +11,6 @@ export default function SideNav() {
 href="/"
       >
         <div className="w-32 text-white md:w-40 bg-slate-50">
-          <AcmeLogo />
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 bg-slate-50 md:flex-col md:space-x-0 md:space-y-2">

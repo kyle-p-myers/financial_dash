@@ -1,11 +1,10 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
-import VariantAvatars from '@/components/ui/member-avatar';
 import { AvatarGroup } from '@mui/material';
-import MemberAvatar from '@/components/ui/member-avatar';
-import { Button } from "@/app/ui/button";
+import MemberAvatar from '@/components/team/member-avatar';
 import { Icon } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
+import { Button } from '../ui/button';
 
 export default function MemberCard() {
 

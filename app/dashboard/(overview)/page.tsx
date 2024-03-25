@@ -1,14 +1,9 @@
 import { ThemeProvider } from "@material-tailwind/react";
-import NotesCreatedCard from '@/app/ui/dashboard/cards';
-import Cards from '@/app/ui/dashboard/cards';
-import Greeting from '@/app/ui/dashboard/greeting';
-import NotesBarGraph from '@/app/ui/dashboard/notes-graph';
-import SearchBar from '@/app/ui/dashboard/search-bar';
-import { lusitana } from '@/app/ui/fonts';
-
-
-import { CardsSkeleton } from '@/app/ui/skeletons';
-
+import NotesCreatedCard from '@/components/dashboard/cards';
+import Cards from '@/components/dashboard/cards';
+import Greeting from '@/components/dashboard/greeting';
+import NotesBarGraph from '@/components/dashboard/notes-graph';
+import SearchBar from '@/components/dashboard/search-bar';
 
 export default async function Page() {
   
@@ -19,12 +14,11 @@ export default async function Page() {
         <div className='ml-1 w-[60%]'>
       <SearchBar />
       </div>
-      <div className='mt-20'>
+      <div className='mt-8'>
       <Greeting />
       </div>
       <div className='flex'>
       <NotesCreatedCard />
-      <NotesBarGraph />
       </div>
      
     </main>
