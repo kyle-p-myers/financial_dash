@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import NavLinks from '@/public/components/dashboard/nav-links';
+import NavLinks from '@/app/public/components/dashboard/nav-links';
 
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Button from '@mui/material/Button';

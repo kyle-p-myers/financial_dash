@@ -1,4 +1,6 @@
 
+
+
 import NotesCreatedCard from '@/app/public/components/dashboard/cards';
 import Greeting from '@/app/public/components/dashboard/greeting';
 import SearchBar from '@/app/public/components/dashboard/search-bar';

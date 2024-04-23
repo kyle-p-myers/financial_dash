@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge } from "@/public/components/ui/badge"
+import { Badge } from "@/app/public/components/ui/badge"
 import React from 'react'
 
 export default function FilePreview() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar';
 import { AvatarGroup } from '@mui/material';
-import MemberAvatar from '@/public/components/team/member-avatar';
+import MemberAvatar from '@/app/public/components/team/member-avatar';
 import { Icon } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '../ui/button';

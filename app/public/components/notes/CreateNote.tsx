@@ -13,10 +13,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/public/components/ui/sheet';
-import { Button } from '@/public/components/ui/button';
-import { Input } from '@/public/components/ui/input';
-import { Label } from '@/public/components/ui/label';
+} from '@/app/public/components/ui/sheet';
+
+import { Button } from '@/app/public/components/ui/button';
+import { Input } from '@/app/public/components/ui/input';
+import { Label } from '@/app/public/components/ui/label';
 import { Textarea } from '../ui/textarea';
 import NotePrioritySelector from './NotePrioritySelector';
 import ToggleGroup from './ToggleGroup';
@@ -75,7 +76,7 @@ export default function CreateNote() {
             </div>
           </div>
           <Button>
-          Create Note
+          Create
         </Button>
         </SheetContent>
         
