@@ -1,7 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "build": "next build",
     "dev": "next dev",
     "prettier": "prettier --write --ignore-unknown .",
