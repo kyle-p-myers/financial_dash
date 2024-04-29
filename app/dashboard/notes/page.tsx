@@ -1,6 +1,6 @@
 'use client'
 
-import CreateNote from "@/public/components/notes/CreateNote";
+import CreateNote from "@/app/public/components/notes/CreateNote";
 export default function Page() {
   return(
   <>

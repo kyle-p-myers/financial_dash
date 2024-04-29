@@ -1,16 +1,16 @@
-import MemberCard from "@/public/components/team/member-card";
-import { Button } from "@/public/components/ui/button"
-import MemberAvatar from "@/public/components/ui/member-avatar"
-import { Icon } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
+import React from 'react';
+import MemberCard from "@/app/public/components/team/member-card";
+import { users } from '@/app/lib/placeholder-data';
 
 export default function Page(){
     return (
-    <>
-    <div>Customers Page</div>
-        <div>
-            <MemberCard />
-        </div>
-    </>
+        <>
+            <div>Customers Page</div>
+            <div className='grid grid-cols-2'>
+                {users.map((user) => (
+                    <MemberCard key={user.id} user={user} />
+                ))}
+            </div>
+        </>
     )
 }

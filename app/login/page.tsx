@@ -1,5 +1,5 @@
-import LoginWelcome from '@/public/components/login/login-welcome';
-import LoginForm from '@/public/components/login/login-form';
+import LoginWelcome from '@/app/public/components/login/login-welcome';
+import LoginForm from '@/app/public/components/login/login-form';
 
 
 export default function Page() {

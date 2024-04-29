@@ -9,7 +9,7 @@ import {
     SelectLabel,
     SelectTrigger,
     SelectValue,
-  } from "@/public/components/ui/select"
+  } from "@/app/public/components/ui/select"
 
 export default function NoteDeptSelect() {
   return (

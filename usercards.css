@@ -1,0 +1,41 @@
+.card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust min and max width as needed */
+    gap: 8px;
+    background-color: #9b0f0f;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+.avatar {
+    grid-column: 1 / 2;
+}
+
+.info {
+    grid-column: 2 / 4;
+}
+
+.actions {
+    grid-column: 4 / 5;
+}
+
+.name {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.email {
+    margin-top: 0.25rem;
+}
+
+.notes, .profile {
+    background-color: #6B46C1;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+
+.edit-icon {
+    float: right;
+}
