@@ -15,7 +15,7 @@ export default function NoteDeptSelect() {
   return (
     <div>
     <Select>
-      <SelectTrigger className="w-[200px] shadow-xl">
+      <SelectTrigger className="w-auto">
         <SelectValue placeholder="Select a Department" />
       </SelectTrigger>
       <SelectContent>

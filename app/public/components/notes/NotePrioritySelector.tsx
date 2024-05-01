@@ -16,13 +16,13 @@ export default function NotePrioritySelector() {
   return (
     <div>
     <Select>
-      <SelectTrigger className="w-[200px] shadow-xl">
+      <SelectTrigger className="w-auto">
         <SelectValue placeholder="Select a Note Priority" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Priority</SelectLabel>
-          <SelectItem className='hover:bg-green-500' value="low">Low</SelectItem>
+          <SelectItem className='' value="low">Low</SelectItem>
           <SelectItem value="medium">Medium</SelectItem>
           <SelectItem value="high">High</SelectItem>
         </SelectGroup>

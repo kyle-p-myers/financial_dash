@@ -12,7 +12,7 @@ import {
 export default function NotesCard() {
   return (
     <div>
-      <Card>
+      <Card className='w-auto gap-4'>
   <CardHeader>
     <CardTitle>Personal Notes</CardTitle>
     <CardDescription>600 Notes</CardDescription>

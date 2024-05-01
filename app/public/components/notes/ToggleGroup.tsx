@@ -13,7 +13,7 @@ import {
 export default function ToggleGroup() {
   return (
     <Toolbar.Root
-    className="flex p-[10px] w-full min-w-max rounded-md bg-white shadow-[0_2px_10px] shadow-blackA4"
+    className="flex p-[10px] w-full min-w-max rounded-md bg-white  "
     aria-label="Formatting options"
   >
     <Toolbar.ToggleGroup type="multiple" aria-label="Text formatting">

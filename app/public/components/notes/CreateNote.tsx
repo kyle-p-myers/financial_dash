@@ -22,7 +22,7 @@ import NotePrioritySelector from './NotePrioritySelector';
 import ToggleGroup from './ToggleGroup';
 import NoteDeptSelect from './NoteDeptSelect';
 import NoteLevelSelect from './NoteLevelSelect';
-import FilePreview from './FilePreview';
+import FilePreview from './FileUpload';
 
 export default function CreateNote() {
  
@@ -45,7 +45,7 @@ export default function CreateNote() {
               <Label className="mb-1">Note Title</Label>
               <Input  id="note-title" className="" />
             </div>
-            <div className="mb-5 mt-5 flex w-[100%] justify-between gap-2">
+            <div className="mb-5 mt-3 flex w-[100%] justify-between">
               <NotePrioritySelector /> <NoteDeptSelect />
               <NoteLevelSelect />
             </div>
@@ -65,12 +65,8 @@ export default function CreateNote() {
             </div>
           </div>
           <div className=" m-4 justify-between">
-            <div className="col-start-2 row-start-1"> Attached Documents</div>
+            <div className="col-start-2 row-start-1"> Attach Documents</div>
             <div className=" row-start-2 flex justify-between">
-              <FilePreview /> <FilePreview /> <FilePreview />
-            </div>
-            <div className="row-start-3"> Attached Images</div>
-            <div className=" row-start-4 flex justify-between">
               <FilePreview /> <FilePreview /> <FilePreview />
             </div>
           </div>
