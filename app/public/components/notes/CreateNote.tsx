@@ -1,80 +1,189 @@
-"use client"
-
 import React from 'react';
-import { useState } from 'react';
-import { getFirestore, addDoc, collection } from "firebase/firestore";
-import { db } from '@/app/firebase/firebase';
+import * as z from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  FormDescription
+} from '@/components/ui/form';
 
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/app/public/components/ui/sheet';
-import { Button } from '@/app/public/components/ui/button';
-import { Input } from '@/app/public/components/ui/input';
-import { Label } from '@/app/public/components/ui/label';
-import { Textarea } from '../ui/textarea';
-import NotePrioritySelector from './NotePrioritySelector';
-import ToggleGroup from './ToggleGroup';
-import NoteDeptSelect from './NoteDeptSelect';
-import NoteLevelSelect from './NoteLevelSelect';
-import FilePreview from './FileUpload';
+import { toast } from '@/components/ui/use-toast';
+import Link from 'next/link';
+
+const noteSchema = z.object({
+  title: z.string().min(2).max(200),
+  body: z.string().min(2).max(500),
+  priority: z.array(z.string()),
+  department: z.array(z.string()),
+  level: z.array(z.string()),
+});
 
 export default function CreateNote() {
- 
+  const form = useForm<z.infer<typeof noteSchema>>({
+    resolver: zodResolver(noteSchema),
+    defaultValues: {
+      title: '',
+      body: '',
+      priority: ['priority'],
+      department: [],
+      level: [],
+    },
+  });
+
+  const onSubmit = (data: z.infer<typeof noteSchema>) => {
+    toast({
+      title: 'Note Created',
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
+  };
+
   return (
-    <div>
+    <div className=''>
       <Sheet>
         <SheetTrigger>
           <Button variant={'default'}>Create Note</Button>
         </SheetTrigger>
-        <SheetContent side={'bottom'} className="grid h-auto grid-cols-2 gap-1">
-          <div className=" col-span-1 col-start-1 m-4 h-[90%]">
-            <SheetHeader>
-              <SheetTitle>Create Note</SheetTitle>
-              <SheetDescription>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
-              </SheetDescription>
-            </SheetHeader>
-            <div className="mb-1">
-              <Label className="mb-1">Note Title</Label>
-              <Input  id="note-title" className="" />
-            </div>
-            <div className="mb-5 mt-3 flex w-[100%] justify-between">
-              <NotePrioritySelector /> <NoteDeptSelect />
-              <NoteLevelSelect />
-            </div>
+        <SheetContent
+          side={'bottom'}
+          className="h-auto gap-1 bg-emerald-500"
+        >
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Create Note</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Title" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className='flex bg-red-700 w-[60%]'> 
+              <div className='flex w-[33%]'>
+                 <FormField
+          control={form.control}
+          name="priority"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Priority</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={'Priority'}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        </div>
+        <div className='flex w-[33%]'>
+                 <FormField
+          control={form.control}
+          name="priority"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Priority</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={'Priority'}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        </div>
+        <div className='flex w-[33%]'>
+                 <FormField
+          control={form.control}
+          name="priority"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Priority</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={'Priority'}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        </div>
+        </div>
 
-            <div className="">
-              <Label className="">Body</Label>
-              <div className="">
-                <Textarea
-                 
-                  id="note-body"
-                  className=" h-[150px] w-[100%]"
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Body</FormLabel>
+                    <FormControl>
+                    <Textarea
+                  placeholder="Tell us a little bit about yourself"
+                  className="resize-none"
+                  {...field}
                 />
-                <div className="">
-                  <ToggleGroup />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className=" m-4 justify-between">
-            <div className="col-start-2 row-start-1"> Attach Documents</div>
-            <div className=" row-start-2 flex justify-between">
-              <FilePreview /> <FilePreview /> <FilePreview />
-            </div>
-          </div>
-          <Button>
-          Create Note
-        </Button>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+           
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
         </SheetContent>
-        
       </Sheet>
     </div>
   );
