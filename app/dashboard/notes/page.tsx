@@ -7,21 +7,27 @@ import { NotesDelete } from '@/app/public/components/notes/notesDelete';
 import { NotesExport } from '@/app/public/components/notes/notesExport';
 import { NotesFilter } from '@/app/public/components/notes/notesFilter';
 import { Input } from '@/app/public/components/ui/input';
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Scroll } from 'lucide-react';
-
+import { ScrollArea } from "@/components/ui/scroll-area";
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/app/firebase/firebaseConfig';
 export default function Page() {
+  // Dummy note data for demonstration purposes
+  const dummyNotes = [
+    { id: '1', title: 'Note 1', body: 'Body of Note 1' },
+    // Add more dummy notes as needed
+  ];
+
   return (
-    <div className=" h-full ">
+    <div className="h-full">
       <div className="flex gap-20">
-        <CreateNote />
         <Input
           type="search"
           placeholder="Search..."
           className="md:w-[100px] lg:w-[500px]"
         />
       </div>
-      <div className=" mt-10 gap-2 grid h-[15%] w-full grid-cols-5 content-center">
+      <div className="mt-10 gap-2 grid h-[15%] w-full grid-cols-5 content-center">
         <NotesCard />
         <NotesCard />
         <NotesCard />
@@ -37,22 +43,13 @@ export default function Page() {
           <NotesExport />
         </div>
       </div>
-      <ScrollArea className=" max-h-[75%] w-[75%] p-4 bg-transparent">
-      <div className="mt-2 grid grid-cols-3 gap-1 w-[100%] h-auto">
-        <div>
-          <NotePreview />
+     
+      <ScrollArea className="flex max-h-[75%] w-[75%] p-4 bg-transparent">
+        <div className="mt-2 gap-1 w-[25%] h-auto bg-emerald-800">
+        <CreateNote />
         </div>
-        <div>
-          <NotePreview />
-        </div>
-        <div>
-          <NotePreview />
-        </div>
-        <div>
-          <NotePreview />
-        </div>
-      </div>
       </ScrollArea>
     </div>
   );
 }
+

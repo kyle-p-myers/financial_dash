@@ -1,52 +1,46 @@
+import React from 'react';
+import { Button } from '../ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-
-import React from 'react';
-import { Button } from '../ui/button';
-import { Image, Video, File, Badge } from 'lucide-react';
-import PriorityBadge from './PriorityBadge';
-import { DeptBadge } from './DeptBadge';
 import { NoteSelectCheck } from './NotesSelectCheck';
 
-export default function NotePreview() {
+interface Note {
+  id: string;
+  title: string;
+  body: string;
+  // Add any other properties of a note
+}
+
+interface NotePreviewProps {
+  note: Note;
+}
+
+export default function NotePreview({ note }: NotePreviewProps) {
   return (
     <div>
       <Card>
         <CardHeader>
-          <div className=" flex items-center justify-between">
-            <CardTitle>Card Title</CardTitle>
-              <NoteSelectCheck />
+          <div className="flex items-center justify-between">
+            <CardTitle>
+              <p>{note.title}</p>
+            </CardTitle>
+            <NoteSelectCheck />
           </div>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <p>{note.body}</p>
           <div className="mt-6 flex gap-3">
             <Button variant={'outline'} size={'sm'}>
-              <Image size={'16px'} />
               <div className="ml-1">1</div>
-            </Button>
-            <Button variant={'outline'} size={'sm'}>
-              <Video size={'16px'} />
-              <div className="ml-1">3</div>
-            </Button>
-            <Button variant={'outline'} size={'sm'}>
-              <File size={'16px'} />
-              <div className="ml-1">4</div>
             </Button>
           </div>
         </CardContent>
-        <CardFooter>
-          <div className='flex gap-2'>
-          <PriorityBadge />
-          <DeptBadge />
-          </div>
-        </CardFooter>
+        <CardFooter></CardFooter>
       </Card>
     </div>
   );
