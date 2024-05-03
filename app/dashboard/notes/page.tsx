@@ -8,15 +8,9 @@ import { NotesExport } from '@/app/public/components/notes/notesExport';
 import { NotesFilter } from '@/app/public/components/notes/notesFilter';
 import { Input } from '@/app/public/components/ui/input';
 import { ScrollArea } from "@/components/ui/scroll-area";
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '@/app/firebase/firebaseConfig';
+
 export default function Page() {
-  // Dummy note data for demonstration purposes
-  const dummyNotes = [
-    { id: '1', title: 'Note 1', body: 'Body of Note 1' },
-    // Add more dummy notes as needed
-  ];
+
 
   return (
     <div className="h-full">
@@ -45,11 +39,12 @@ export default function Page() {
       </div>
      
       <ScrollArea className="flex max-h-[75%] w-[75%] p-4 bg-transparent">
-        <div className="mt-2 gap-1 w-[25%] h-auto bg-emerald-800">
+        <div className="mt-2 gap-1 w-[25%] h-auto">
         <CreateNote />
         </div>
       </ScrollArea>
     </div>
   );
 }
+
 
