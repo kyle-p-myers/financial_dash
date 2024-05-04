@@ -10,7 +10,7 @@ import {
     SelectLabel,
     SelectTrigger,
     SelectValue,
-  } from "@/app/public/components/ui/select"
+  } from "@/components/ui/select"
 
 export default function NotePrioritySelector() {
   return (

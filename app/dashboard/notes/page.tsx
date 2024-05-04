@@ -1,16 +1,21 @@
-'use client';
+'use client'
 
+import React, { useState } from 'react';
 import CreateNote from '@/app/public/components/notes/CreateNote';
 import NotePreview from '@/app/public/components/notes/notePreview';
-import NotesCard from '@/app/public/components/notes/notes-level-card';
-import { NotesDelete } from '@/app/public/components/notes/notesDelete';
-import { NotesExport } from '@/app/public/components/notes/notesExport';
-import { NotesFilter } from '@/app/public/components/notes/notesFilter';
-import { Input } from '@/app/public/components/ui/input';
+import { Input } from '@/components/ui/input';
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Page() {
+  const [notes, setNotes] = useState<Note[]>([]);
 
+  // Function to delete a note
+  const deleteNote = (id: string) => {
+    // Remove the note from the notes array based on the id
+    const updatedNotes = notes.filter(note => note.id !== id);
+    setNotes(updatedNotes);
+    // You can also call an API or perform any other necessary operations to delete the note
+  };
 
   return (
     <div className="h-full">
@@ -21,30 +26,14 @@ export default function Page() {
           className="md:w-[100px] lg:w-[500px]"
         />
       </div>
-      <div className="mt-10 gap-2 grid h-[15%] w-full grid-cols-5 content-center">
-        <NotesCard />
-        <NotesCard />
-        <NotesCard />
-      </div>
-      <div className="mt-10 flex w-[75%] justify-end gap-2 bg-transparent">
-        <div>
-          <NotesFilter />
-        </div>
-        <div>
-          <NotesDelete />
-        </div>
-        <div>
-          <NotesExport />
-        </div>
-      </div>
-     
       <ScrollArea className="flex max-h-[75%] w-[75%] p-4 bg-transparent">
         <div className="mt-2 gap-1 w-[25%] h-auto">
-        <CreateNote />
+          {notes.map(note => (
+            <NotePreview key={note.id} note={note} onDelete={() => deleteNote(note.id)} />
+          ))}
         </div>
       </ScrollArea>
+      <CreateNote />
     </div>
   );
 }
-
-

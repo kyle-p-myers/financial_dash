@@ -2,7 +2,7 @@ import React from 'react';
 import { Users } from '@/app/lib/definitions';
 import MemberAvatar from '@/app/public/components/team/member-avatar';
 
-import { Button } from '../ui/button';
+import { Button } from '../../../../components/ui/button';
 import 'usercards.css'
 
 interface MemberCardProps {

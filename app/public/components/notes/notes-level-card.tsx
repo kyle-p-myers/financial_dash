@@ -6,7 +6,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-  } from "@/app/public/components/ui/card"
+  } from "@/components/ui/card"
   
 
 export default function NotesCard() {

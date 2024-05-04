@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { SquarePlus } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Button } from '../../../../components/ui/button';
 
 export default function FilePreview() {
   return (
